@@ -1,0 +1,7 @@
+[user]
+	name = Brandon Lin
+	email = blin00@gmail.com
+[core]
+	editor = vim
+[push]
+	default = simple

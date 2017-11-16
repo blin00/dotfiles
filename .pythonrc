@@ -1,5 +1,10 @@
-import os
 import sys
+
+if sys.version_info.major < 3:
+    import rlcompleter
+    import readline
+    readline.parse_and_bind('tab: complete')
+
 try:
     import numpy as np
     import scipy

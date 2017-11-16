@@ -20,6 +20,6 @@ function ls --description 'list directory contents'
         command ls $param $argv
 end
 
-if begin; test -z (command pgrep ssh-agent); end
+if begin; test -z (command pgrep ssh-agent); and test -f $HOME/.ssh/config; end
     eval (command ssh-agent -c | sed 's/^setenv/set -Ux/')
 end

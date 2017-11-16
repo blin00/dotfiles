@@ -1,4 +1,4 @@
-set add_to_path $HOME/opt/cross/bin $HOME/.local/bin
+set add_to_path $HOME/opt/cross/bin $HOME/.local/bin /usr/local/go/bin
 for entry in $add_to_path
     if test -d $entry
         set -x PATH $entry $PATH

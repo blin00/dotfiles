@@ -7,3 +7,14 @@ end
 
 set -x EDITOR vim
 set -x VISUAL vim
+set -x PYTHONSTARTUP $HOME/.pythonrc
+
+set fish_greeting
+
+function ls --description 'list directory contents'
+    set -l param --color=auto
+        if isatty 1
+            set param $param -h --indicator-style=classify
+        end
+        command ls $param $argv
+end

@@ -7,8 +7,11 @@ end
 
 set -x EDITOR vim
 set -x VISUAL vim
-set -x PYTHONSTARTUP $HOME/.pythonrc
 set -x CYGWIN winsymlinks:native
+
+if test -f $HOME/.pythonrc
+    set -x PYTHONSTARTUP $HOME/.pythonrc
+end
 
 set fish_greeting
 

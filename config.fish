@@ -7,7 +7,10 @@ end
 
 set -x EDITOR vim
 set -x VISUAL vim
-set -x CYGWIN winsymlinks:native
+
+if test -d /cygdrive
+    set -x CYGWIN winsymlinks:native
+end
 
 if test -f $HOME/.pythonrc
     set -x PYTHONSTARTUP $HOME/.pythonrc

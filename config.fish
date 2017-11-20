@@ -37,7 +37,10 @@ function ls --description 'list directory contents'
     command ls $param $argv
 end
 
-if test -z (pgrep ssh-agent)
+if not pgrep -c -u (id -u) ssh-agent > /dev/null
 and test -f $HOME/.ssh/config
+    # prevent strange "global variable already exists" warning
+    set -e SSH_AGENT_PID
+    set -e SSH_AUTH_SOCK
     eval (ssh-agent -c | sed 's/^setenv/set -Ux/')
 end

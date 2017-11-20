@@ -22,10 +22,10 @@ end
 
 function ls --description 'list directory contents'
     set -l param --color=auto
-        if isatty stdout
-            set param $param -h --indicator-style=classify
-        end
-        command ls $param $argv
+    if isatty stdout
+        set param $param -h --indicator-style=classify
+    end
+    command ls $param $argv
 end
 
 if test -z (pgrep ssh-agent)

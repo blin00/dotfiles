@@ -19,6 +19,15 @@ if test -f $HOME/.pythonrc
     set -gx PYTHONSTARTUP $HOME/.pythonrc
 end
 
+alias ga="git add"
+alias gau="git add -u"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gl="git log"
+alias glp="git log -p"
+alias gs="git status"
 
 function ls --description 'list directory contents'
     set -l param --color=auto

@@ -4,7 +4,7 @@ set -l add_to_path $HOME/opt/cross/bin $HOME/.local/bin /usr/local/go/bin
 for entry in $add_to_path
     if test -d $entry
     and not contains $entry $PATH
-        set PATH $entry $PATH
+        set -gx PATH $entry $PATH
     end
 end
 
@@ -37,10 +37,12 @@ function ls --description 'list directory contents'
     command ls $param $argv
 end
 
-if not pgrep -c -u (id -u) ssh-agent > /dev/null
-and test -f $HOME/.ssh/config
-    # prevent strange "global variable already exists" warning
-    set -e SSH_AGENT_PID
-    set -e SSH_AUTH_SOCK
-    eval (ssh-agent -c | sed 's/^setenv/set -Ux/')
+if test -f $HOME/.ssh/config
+    ssh-add -l > /dev/null ^&1
+    if test $status -eq 2
+        # prevent strange "global variable already exists" warning
+        set -e SSH_AGENT_PID
+        set -e SSH_AUTH_SOCK
+        eval (ssh-agent -c | sed 's/^setenv/set -Ux/')
+    end
 end

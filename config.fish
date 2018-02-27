@@ -51,6 +51,7 @@ if test -f $HOME/.ssh/config
         # prevent strange "global variable already exists" warning
         set -e SSH_AGENT_PID
         set -e SSH_AUTH_SOCK
-        eval (ssh-agent -c | sed 's/^setenv/set -Ux/')
+        # any output breaks scp
+        eval (ssh-agent -c | sed 's/^setenv/set -Ux/') > /dev/null
     end
 end

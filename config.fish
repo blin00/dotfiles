@@ -37,6 +37,8 @@ alias gl="git log"
 alias glp="git log -p"
 alias gs="git status"
 
+alias pacman="pacman --color auto"
+
 function ls --description 'list directory contents'
     set -l param --color=auto
     if isatty stdout

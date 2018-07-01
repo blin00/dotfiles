@@ -1,6 +1,6 @@
 set fish_greeting
 
-set -l add_to_path $HOME/opt/cross/bin $HOME/.local/bin $HOME/bin /usr/local/go/bin /usr/local/cuda-9.0/bin
+set -l add_to_path $HOME/opt/cross/bin $HOME/.local/bin $HOME/bin /usr/local/go/bin /usr/local/cuda/bin
 for entry in $add_to_path
     if test -d $entry
     and not contains $entry $PATH

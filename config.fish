@@ -8,7 +8,7 @@ for entry in $add_to_path
     end
 end
 
-if test -d $HOME/.local/lib
+if false; and test -d $HOME/.local/lib
     if test -n "$LD_LIBRARY_PATH"
         set -gx LD_LIBRARY_PATH "$HOME/.local/lib:$LD_LIBRARY_PATH"
     else

@@ -47,7 +47,7 @@ function ls --description 'list directory contents'
     command ls $param $argv
 end
 
-if test -f $HOME/.ssh/config
+if test -f $HOME/.ssh/.agent
     ssh-add -l > /dev/null ^&1
     if test $status -eq 2
         # prevent strange "global variable already exists" warning

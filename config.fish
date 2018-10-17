@@ -29,6 +29,7 @@ end
 
 alias ga="git add"
 alias gau="git add -u"
+alias gb="git branch"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gd="git diff"

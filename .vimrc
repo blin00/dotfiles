@@ -2,6 +2,7 @@ set nocompatible
 set backspace=2
 set background=dark
 syntax on
+set nomodeline
 
 set tabstop=8
 set expandtab

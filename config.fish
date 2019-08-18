@@ -66,6 +66,10 @@ alias gs="git status"
 
 alias pacman="pacman --color auto"
 
+function yolossh
+    ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $argv
+end
+
 if test $os = 'Darwin'
     alias shred="gshred"
     alias base64="gbase64"

@@ -25,6 +25,29 @@ set fish_color_status red
 set fish_color_user brgreen
 set fish_color_valid_path --underline
 
+function fish_prompt --description "Write out the prompt"
+    set -l color_cwd
+    set -l suffix
+    switch "$USER"
+        case root toor
+            if set -q fish_color_cwd_root
+                set color_cwd $fish_color_cwd_root
+            else
+                set color_cwd $fish_color_cwd
+            end
+            set suffix '#'
+        case '*'
+            set color_cwd $fish_color_cwd
+            set suffix '>'
+    end
+
+    echo -n -s "$USER" @ (prompt_hostname) ' '
+    if set -q fish_private_mode
+        echo -n -s '[private] '
+    end
+    echo -n -s (set_color $color_cwd) (prompt_pwd) (set_color normal) "$suffix "
+end
+
 set -l prepend_to_path $HOME/opt/cross/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/bin /usr/local/go/bin /usr/local/sbin /usr/local/cuda/bin $HOME/Library/Python/3.7/bin
 
 for entry in $prepend_to_path

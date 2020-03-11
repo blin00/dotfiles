@@ -119,7 +119,7 @@ else
 end
 
 if test -f $HOME/.ssh/.agent
-    ssh-add -l > /dev/null ^&1
+    ssh-add -l > /dev/null 2>&1
     if test $status -eq 2
         # prevent strange "global variable already exists" warning
         set -e SSH_AGENT_PID

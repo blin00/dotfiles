@@ -75,6 +75,9 @@ if test -f $HOME/.pythonrc
     set -gx PYTHONSTARTUP $HOME/.pythonrc
 end
 
+alias py2="python2"
+alias py3="python3"
+
 alias ga="git add"
 alias gau="git add -u"
 alias gb="git branch"

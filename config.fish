@@ -48,6 +48,10 @@ function fish_prompt --description "Write out the prompt"
     echo -n -s (set_color $color_cwd) (prompt_pwd) (set_color normal) "$suffix "
 end
 
+function fish_title
+    echo (status current-command) (prompt_pwd)
+end
+
 set -l prepend_to_path $HOME/opt/cross/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/bin $HOME/android/platform-tools /usr/local/go/bin /usr/local/sbin /usr/local/cuda/bin $HOME/Library/Python/3.7/bin
 
 for entry in $prepend_to_path

@@ -60,6 +60,11 @@ for entry in $prepend_to_path
     end
 end
 
+set -l nix_profile $HOME/.nix-profile/etc/profile.d/nix.sh
+if test -e $nix_profile
+    fenv source $nix_profile 2> /dev/null
+end
+
 if false; and test -d $HOME/.local/lib
     if test -n "$LD_LIBRARY_PATH"
         set -gx LD_LIBRARY_PATH "$HOME/.local/lib:$LD_LIBRARY_PATH"
@@ -100,7 +105,7 @@ function yolossh
     ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null $argv
 end
 
-if test $os = 'Darwin'
+if false; and test $os = 'Darwin'
     alias shred="gshred"
     alias base64="gbase64"
 

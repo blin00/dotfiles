@@ -37,11 +37,18 @@ function fish_title
     echo $_ (prompt_pwd)
 end
 
-set -l prepend_to_path $HOME/opt/cross/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/bin $HOME/android/platform-tools /usr/local/go/bin /usr/local/sbin /usr/local/cuda/bin $HOME/Library/Python/3.7/bin
+set -l prepend_to_path $HOME/opt/cross/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/bin /usr/local/go/bin /usr/local/sbin /usr/local/cuda/bin $HOME/Library/Python/3.7/bin
+set -l append_to_path $HOME/android/platform-tools
 
 for entry in $prepend_to_path
     if test -d $entry; and not contains $entry $PATH
         set -gx PATH $entry $PATH
+    end
+end
+
+for entry in $append_to_path
+    if test -d $entry; and not contains $entry $PATH
+        set -gx PATH $PATH $entry
     end
 end
 

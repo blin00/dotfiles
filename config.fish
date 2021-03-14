@@ -76,7 +76,10 @@ if test -f $HOME/.pythonrc
     set -gx PYTHONSTARTUP $HOME/.pythonrc
 end
 
+alias build="g++ -std=gnu++17 -Wall -g -O2 -march=native -fsanitize=address,undefined -Wextra -Wshadow -DDEBUG_393939"
+
 alias py2="python2"
+alias py="python3"
 alias py3="python3"
 
 alias ga="git add"

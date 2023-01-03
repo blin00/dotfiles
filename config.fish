@@ -37,7 +37,7 @@ function fish_title
     echo $_ (prompt_pwd)
 end
 
-set -l prepend_to_path $HOME/opt/cross/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/bin /usr/local/go/bin /usr/local/sbin /usr/local/cuda/bin $HOME/Library/Python/3.7/bin
+set -l prepend_to_path $HOME/opt/cross/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/bin /usr/local/go/bin /usr/local/sbin /usr/local/cuda/bin
 set -l append_to_path $HOME/android/platform-tools
 
 for entry in $prepend_to_path
@@ -77,6 +77,7 @@ if test -f $HOME/.pythonrc
 end
 
 alias build="g++ -std=gnu++17 -Wall -g -O2 -march=native -fsanitize=address,undefined -Wextra -Wshadow -DDEBUG_393939"
+alias build_opt="g++ -std=gnu++17 -Wall -g -O2 -march=native -Wextra -Wshadow -DDEBUG_393939"
 
 alias py2="python2"
 alias py="python3"
@@ -134,4 +135,8 @@ if test -f $HOME/.ssh/.agent
         # any output breaks scp
         eval (ssh-agent -c | sed 's/^setenv/set -Ux/') > /dev/null
     end
+end
+
+if test -f $HOME/miniconda3/bin/conda
+    eval /home/brandon/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 end

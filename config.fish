@@ -52,11 +52,6 @@ for entry in $append_to_path
     end
 end
 
-set -l nix_profile $HOME/.nix-profile/etc/profile.d/nix.sh
-if test -e $nix_profile
-    fenv source $nix_profile 2> /dev/null
-end
-
 if false; and test -d $HOME/.local/lib
     if test -n "$LD_LIBRARY_PATH"
         set -gx LD_LIBRARY_PATH "$HOME/.local/lib:$LD_LIBRARY_PATH"
